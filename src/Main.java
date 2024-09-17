@@ -25,6 +25,8 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
+
+    public static final String PHONE_NOT_EXIST = "Phone does not exist.";
     public static final String COMMAND_ERROR = "Unknown command.";
 
     public static void main(String[] args) {
@@ -57,7 +59,8 @@ public class Main {
                     break;
 
                 case GET_NUMBER:
-
+                    getContactByNumber(in,cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -156,7 +159,10 @@ public class Main {
   private static void getContactByNumber(Scanner in, ContactBook cBook) {
         int number;
         number = in.nextInt(); in.nextLine();
-        cBook c =   cBook.getContactByPhone(number);
-        else System.out.println(NAME_NOT_EXIST);
+        Contact c =   cBook.getContactByPhone(number);
+        if (c != null) {
+            System.out.println(c.getName() + "; " + c.getEmail() + "; " + c.getPhone());
+        }
+        else System.out.println(PHONE_NOT_EXIST);
     }
 }
