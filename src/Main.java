@@ -15,6 +15,8 @@ public class Main {
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
 
+    public static final String GET_NUMBER     = "GN";
+
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
@@ -53,6 +55,9 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+
+                case GET_NUMBER:
+
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -146,5 +151,12 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+  private static void getContactByNumber(Scanner in, ContactBook cBook) {
+        int number;
+        number = in.nextInt(); in.nextLine();
+        cBook c =   cBook.getContactByPhone(number);
+        else System.out.println(NAME_NOT_EXIST);
     }
 }
