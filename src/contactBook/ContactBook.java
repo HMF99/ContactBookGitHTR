@@ -59,7 +59,7 @@ public class ContactBook {
             if(contacts[i].getPhone() == phone) contact = contacts[i];
         }
 
-        return contact;
+        return contact;  
     }
 
     //Pre: name != null && hasContact(name)
